@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Modelo;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 
@@ -70,3 +71,9 @@ namespace Modelo
         }
     }
 }
+
+
+
+
+
+
