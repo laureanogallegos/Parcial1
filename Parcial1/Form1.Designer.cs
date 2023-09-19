@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            btnMedicamento = new Button();
+            btnSalir = new Button();
+            SuspendLayout();
+            // 
+            // btnMedicamento
+            // 
+            btnMedicamento.Location = new Point(25, 38);
+            btnMedicamento.Name = "btnMedicamento";
+            btnMedicamento.Size = new Size(146, 55);
+            btnMedicamento.TabIndex = 0;
+            btnMedicamento.Text = "Agregar Medicamento";
+            btnMedicamento.UseVisualStyleBackColor = true;
+            btnMedicamento.Click += btnMedicamento_Click;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Location = new Point(214, 54);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(75, 23);
+            btnSalir.TabIndex = 2;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(315, 122);
+            Controls.Add(btnSalir);
+            Controls.Add(btnMedicamento);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnMedicamento;
+        private Button btnSalir;
     }
 }
