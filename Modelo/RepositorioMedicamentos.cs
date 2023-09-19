@@ -262,13 +262,13 @@ namespace Modelo
                     while (reader.Read())
                     {
                         var medicamento = new Medicamento();
-                        medicamento.NombreComercial = reader["NombreComercial"].ToString();
-                        medicamento.EsVentaLibre = Convert.ToBoolean(reader["EsVentaLibre"]);
-                        medicamento.PrecioVenta = Convert.ToDecimal(reader["PrecioVenta"]);
+                        medicamento.NombreComercial = reader["Nombre_Comercial"].ToString();
+                        medicamento.EsVentaLibre = Convert.ToBoolean(reader["Es_Venta:Libre"]);
+                        medicamento.PrecioVenta = Convert.ToDecimal(reader["Precio_Venta"]);
                         medicamento.Stock = Convert.ToInt32(reader["Stock"]);
-                        medicamento.StockMinimo = Convert.ToInt32(reader["StockMinimo"]);
+                        medicamento.StockMinimo = Convert.ToInt32(reader["Stock_Minimo"]);
 
-                        medicamento.Monodroga = RepositorioMonodrogas.Instancia.Monodrogas.FirstOrDefault(m => m.Nombre == (reader["NombreConfiguracion"].ToString()));
+                        medicamento.Monodroga = RepositorioMonodrogas.Instancia.Monodrogas.FirstOrDefault(m => m.Nombre == (reader["Nombre_Monodroga"].ToString()));
 
                         using var command2 = new SqlCommand();
                         command2.CommandType = System.Data.CommandType.StoredProcedure;
