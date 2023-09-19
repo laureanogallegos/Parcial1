@@ -281,7 +281,7 @@ namespace Modelo
                         {
                             var drogueria = new Drogueria();
                             drogueria.Cuit = Convert.ToInt32(reader2["CUIT"]);
-                            
+
                             drogueria = RepositorioDroguerias.Instancia.Droguerias.FirstOrDefault(d => d.Cuit == drogueria.Cuit);
 
                             medicamento.Droguerias.Add(drogueria);
@@ -300,6 +300,7 @@ namespace Modelo
                     connection.Close();
                     connection.Dispose();
                 }
+            }
         }
     }
 }
