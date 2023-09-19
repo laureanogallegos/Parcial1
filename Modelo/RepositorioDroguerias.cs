@@ -68,5 +68,9 @@ namespace Modelo
         {
             get => droguerias.AsReadOnly();
         }
+
+    
+      
     }
 }
+
