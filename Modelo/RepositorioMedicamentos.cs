@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    public class RepositorioMedicamento
+    public class RepositorioMedicamentos
     {
-        private static RepositorioMedicamento instancia;
+        private static RepositorioMedicamentos instancia;
         private List<Medicamento> medicamentos;
         private IConfigurationRoot configuration;
 
-        private RepositorioMedicamento()
+        private RepositorioMedicamentos()
         {
             configuration = ConfigurationHelper.GetConfiguration("appsettings.json");
             medicamentos = new List<Medicamento>();
             ListarMedicamentos();
         }
 
-        public static RepositorioMedicamento Instancia
+        public static RepositorioMedicamentos Instancia
         {
             get
             {
                 if (instancia == null)
                 {
-                    instancia = new RepositorioMedicamento();
+                    instancia = new RepositorioMedicamentos();
                 }
 
                 return instancia;

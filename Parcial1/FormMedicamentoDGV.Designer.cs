@@ -50,9 +50,9 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Location = new Point(184, 12);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(83, 15);
+            lblTitulo.Size = new Size(86, 15);
             lblTitulo.TabIndex = 1;
-            lblTitulo.Text = "Configuracion";
+            lblTitulo.Text = "Medicamentos";
             // 
             // btnAgregar
             // 
@@ -62,6 +62,7 @@
             btnAgregar.TabIndex = 2;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
@@ -71,6 +72,7 @@
             btnModificar.TabIndex = 3;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
@@ -80,8 +82,9 @@
             btnEliminar.TabIndex = 4;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
-            // FormConfiguracionDGV
+            // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -94,8 +97,9 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FormConfiguracionDGV";
+            Name = "Form1";
             Text = "FormPasajerosDGV";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -109,6 +113,6 @@
         private Button btnModificar;
         private Button btnEliminar;
 
-        
+
     }
 }

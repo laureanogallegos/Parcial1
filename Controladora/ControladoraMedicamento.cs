@@ -30,7 +30,33 @@ namespace Controladora
         {
             try
             {
-                return RepositorioMedicamento.Instancia.RecuperarMedicamentos();
+                return RepositorioMedicamentos.Instancia.RecuperarMedicamentos();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public ReadOnlyCollection<Monodroga> RecuperarMonodrogas()
+        {
+            try
+            {
+                return RepositorioMonodrogas.Instancia.Monodrogas;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public ReadOnlyCollection<Drogueria> RecuperarDroguerias()
+        {
+            try
+            {
+                return RepositorioDroguerias.Instancia.Droguerias;
             }
             catch (Exception)
             {
@@ -42,11 +68,11 @@ namespace Controladora
         {
             try
             {
-                var listaMedicamentos = RepositorioMedicamento.Instancia.RecuperarMedicamentos();
+                var listaMedicamentos = RepositorioMedicamentos.Instancia.RecuperarMedicamentos();
                 var medicamentoEncontrado = listaMedicamentos.FirstOrDefault(x => x.NombreComercial == medicamento.NombreComercial);
                 if (medicamentoEncontrado == null)
                 {
-                    var ok = RepositorioMedicamento.Instancia.Agregar(medicamento);
+                    var ok = RepositorioMedicamentos.Instancia.Agregar(medicamento);
                     if (ok)
                     {
                         return $"{medicamento.NombreComercial} se agregó correctamente";
@@ -71,11 +97,11 @@ namespace Controladora
         {
             try
             {
-                var listaMedicamentos = RepositorioMedicamento.Instancia.RecuperarMedicamentos();
+                var listaMedicamentos = RepositorioMedicamentos.Instancia.RecuperarMedicamentos();
                 var medicamentoEncontrado = listaMedicamentos.FirstOrDefault(x => x.NombreComercial == medicamento.NombreComercial);
                 if (medicamentoEncontrado != null)
                 {
-                    var ok = RepositorioMedicamento.Instancia.Modificar(medicamento);
+                    var ok = RepositorioMedicamentos.Instancia.Modificar(medicamento);
                     if (ok)
                     {
                         return $"{medicamento.NombreComercial} se modificó correctamente";
@@ -100,12 +126,12 @@ namespace Controladora
         {
             try
             {
-                var listaMedicamentos = RepositorioMedicamento.Instancia.RecuperarMedicamentos();
+                var listaMedicamentos = RepositorioMedicamentos.Instancia.RecuperarMedicamentos();
                 var medicamentoEncontrado = listaMedicamentos.FirstOrDefault(x => x.NombreComercial.ToLower() == medicamento.NombreComercial.ToLower());
 
                 if (medicamentoEncontrado != null)
                 {
-                    var ok = RepositorioMedicamento.Instancia.Eliminar(medicamento);
+                    var ok = RepositorioMedicamentos.Instancia.Eliminar(medicamento);
                     if (ok)
                     {
                         return $"{medicamentoEncontrado.NombreComercial} se eliminó correctamente.";
