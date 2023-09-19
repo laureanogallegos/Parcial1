@@ -1,3 +1,8 @@
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
+using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
+
 namespace Parcial1
 {
     internal static class Program
@@ -15,3 +20,6 @@ namespace Parcial1
         }
     }
 }
+
+
+   
