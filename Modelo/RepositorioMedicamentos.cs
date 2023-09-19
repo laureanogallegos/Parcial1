@@ -89,15 +89,14 @@ namespace Modelo
                 command2.Transaction = sqlTransaction;
 
                 command2.Parameters.Add("@NOMBRE_COMERCIAL", System.Data.SqlDbType.NVarChar, 50).Value = medicamento.NombreComercial;
-                command2.Parameters.Add("@CUIT", System.Data.SqlDbType.Int);
+                command2.Parameters.Add("@CUIT", System.Data.SqlDbType.BigInt);
 
                 foreach (var drogueria in medicamento.Droguerias)
                 {
                     command2.Parameters["@CUIT"].Value = drogueria.Cuit;
                     command2.ExecuteNonQuery();
                 }
-
-                command.ExecuteNonQuery();
+              
                 sqlTransaction.Commit();
                 connection.Close();
                 ok = true;
@@ -214,7 +213,7 @@ namespace Modelo
                 command2.Transaction = sqlTransaction;
 
                 command2.Parameters.Add("@NOMBRE_COMERCIAL", System.Data.SqlDbType.NVarChar, 50).Value = medicamento.NombreComercial;
-                command2.Parameters.Add("@CUIT", System.Data.SqlDbType.Int);
+                command2.Parameters.Add("@CUIT", System.Data.SqlDbType.BigInt);
 
                 foreach (var drogueria in medicamento.Droguerias)
                 {
@@ -262,11 +261,11 @@ namespace Modelo
                     while (reader.Read())
                     {
                         var medicamento = new Medicamento();
-                        medicamento.NombreComercial = reader["Nombre_Comercial"].ToString();
-                        medicamento.EsVentaLibre = Convert.ToBoolean(reader["Es_Venta:Libre"]);
-                        medicamento.PrecioVenta = Convert.ToDecimal(reader["Precio_Venta"]);
-                        medicamento.Stock = Convert.ToInt32(reader["Stock"]);
-                        medicamento.StockMinimo = Convert.ToInt32(reader["Stock_Minimo"]);
+                        medicamento.NombreComercial = reader["NOMBRE_COMERCIAL"].ToString();
+                        medicamento.EsVentaLibre = Convert.ToBoolean(reader["ES_VENTA_LIBRE"]);
+                        medicamento.PrecioVenta = Convert.ToDecimal(reader["PRECIO_VENTA"]);
+                        medicamento.Stock = Convert.ToInt32(reader["STOCK"]);
+                        medicamento.StockMinimo = Convert.ToInt32(reader["STOCK_MINIMO"]);
 
                         medicamento.Monodroga = RepositorioMonodrogas.Instancia.Monodrogas.FirstOrDefault(m => m.Nombre == (reader["Nombre_Monodroga"].ToString()));
 
@@ -280,7 +279,7 @@ namespace Modelo
                         while (reader2.Read())
                         {
                             var drogueria = new Drogueria();
-                            drogueria.Cuit = Convert.ToInt32(reader2["CUIT"]);
+                            drogueria.Cuit = (long)(reader2["CUIT"]);
 
                             drogueria = RepositorioDroguerias.Instancia.Droguerias.FirstOrDefault(d => d.Cuit == drogueria.Cuit);
 

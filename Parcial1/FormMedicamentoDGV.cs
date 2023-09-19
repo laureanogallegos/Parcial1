@@ -66,7 +66,7 @@ namespace Parcial1
             {
                 dgvDroguerias.DataSource = null;
                 dgvDroguerias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                var medicamento = (Medicamento)dgvDroguerias.CurrentRow.DataBoundItem;
+                var medicamento = (Medicamento)dgvMedicamentos.CurrentRow.DataBoundItem;
                 dgvDroguerias.DataSource = medicamento.Droguerias;
             }
         }

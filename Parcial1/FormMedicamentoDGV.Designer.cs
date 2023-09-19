@@ -45,6 +45,7 @@
             dgvMedicamentos.Location = new Point(12, 30);
             dgvMedicamentos.Name = "dgvMedicamentos";
             dgvMedicamentos.RowTemplate.Height = 25;
+            dgvMedicamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMedicamentos.Size = new Size(458, 195);
             dgvMedicamentos.TabIndex = 0;
             dgvMedicamentos.SelectionChanged += dgvMedicamentos_SelectionChanged;
@@ -94,13 +95,13 @@
             dgvDroguerias.Location = new Point(503, 45);
             dgvDroguerias.Name = "dgvDroguerias";
             dgvDroguerias.RowTemplate.Height = 25;
-            dgvDroguerias.Size = new Size(240, 150);
+            dgvDroguerias.Size = new Size(357, 150);
             dgvDroguerias.TabIndex = 5;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(557, 27);
+            label1.Location = new Point(623, 27);
             label1.Name = "label1";
             label1.Size = new Size(120, 15);
             label1.TabIndex = 6;
@@ -110,7 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(782, 279);
+            ClientSize = new Size(872, 279);
             Controls.Add(label1);
             Controls.Add(dgvDroguerias);
             Controls.Add(btnEliminar);

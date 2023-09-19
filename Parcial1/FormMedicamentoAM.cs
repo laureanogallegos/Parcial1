@@ -76,6 +76,10 @@ namespace Parcial1
             {
                 lbAsignados.Items.Add(cmbDisponibles.SelectedItem);
             }
+            else
+            {
+                MessageBox.Show("La droguería ya se encuentra asignada", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -117,6 +121,11 @@ namespace Parcial1
             if (string.IsNullOrEmpty(txtNombreComercial.Text))
             {
                 MessageBox.Show("Debe ingresar un nombre comercial", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (numVenta.Value == 0)
+            {
+                MessageBox.Show("Debe ingresar un valor de venta", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
