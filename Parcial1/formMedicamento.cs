@@ -20,6 +20,12 @@ namespace Parcial1
             comboBox1.DataSource = RepositorioMonodrogas.Instancia.Monodrogas;
         }
 
+        public formMedicamento(Medicamento med) //para el modificar pero no llegue
+        {
+            InitializeComponent();
+            comboBox1.DataSource = RepositorioMonodrogas.Instancia.Monodrogas;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             var medicamento = new Medicamento();
