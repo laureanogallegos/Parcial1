@@ -28,22 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgv = new DataGridView();
+            dgvMedicamentos = new DataGridView();
             lblTitulo = new Label();
             btnAgregar = new Button();
             btnModificar = new Button();
             btnEliminar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
+            dataGridView1 = new DataGridView();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvMedicamentos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // dgv
+            // dgvMedicamentos
             // 
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(12, 30);
-            dgv.Name = "dgv";
-            dgv.RowTemplate.Height = 25;
-            dgv.Size = new Size(458, 195);
-            dgv.TabIndex = 0;
+            dgvMedicamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMedicamentos.Location = new Point(12, 30);
+            dgvMedicamentos.Name = "dgvMedicamentos";
+            dgvMedicamentos.RowTemplate.Height = 25;
+            dgvMedicamentos.Size = new Size(458, 195);
+            dgvMedicamentos.TabIndex = 0;
+            dgvMedicamentos.SelectionChanged += dgvMedicamentos_SelectionChanged;
             // 
             // lblTitulo
             // 
@@ -84,35 +88,56 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(503, 45);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(557, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(120, 15);
+            label1.TabIndex = 6;
+            label1.Text = "Droguerias Asociadas";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(487, 279);
+            ClientSize = new Size(782, 279);
+            Controls.Add(label1);
+            Controls.Add(dataGridView1);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Controls.Add(lblTitulo);
-            Controls.Add(dgv);
+            Controls.Add(dgvMedicamentos);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Form1";
             Text = "FormPasajerosDGV";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvMedicamentos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dgv;
+        private DataGridView dgvMedicamentos;
         private Label lblTitulo;
         private Button btnAgregar;
         private Button btnModificar;
         private Button btnEliminar;
-
-
+        private DataGridView dataGridView1;
+        private Label label1;
     }
 }
