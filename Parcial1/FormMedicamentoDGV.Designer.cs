@@ -33,10 +33,10 @@
             btnAgregar = new Button();
             btnModificar = new Button();
             btnEliminar = new Button();
-            dataGridView1 = new DataGridView();
+            dgvDroguerias = new DataGridView();
             label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvMedicamentos).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDroguerias).BeginInit();
             SuspendLayout();
             // 
             // dgvMedicamentos
@@ -88,14 +88,14 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
-            // dataGridView1
+            // dgvDroguerias
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(503, 45);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(240, 150);
-            dataGridView1.TabIndex = 5;
+            dgvDroguerias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDroguerias.Location = new Point(503, 45);
+            dgvDroguerias.Name = "dgvDroguerias";
+            dgvDroguerias.RowTemplate.Height = 25;
+            dgvDroguerias.Size = new Size(240, 150);
+            dgvDroguerias.TabIndex = 5;
             // 
             // label1
             // 
@@ -112,7 +112,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 279);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvDroguerias);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
@@ -125,7 +125,7 @@
             Text = "FormPasajerosDGV";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMedicamentos).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvDroguerias).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -137,7 +137,7 @@
         private Button btnAgregar;
         private Button btnModificar;
         private Button btnEliminar;
-        private DataGridView dataGridView1;
+        private DataGridView dgvDroguerias;
         private Label label1;
     }
 }

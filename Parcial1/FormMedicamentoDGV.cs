@@ -42,17 +42,33 @@ namespace Parcial1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            ActualizarGrilla();
 
+            CargarDroguerias();
         }
 
         private void ActualizarGrilla()
         {
-            
+            dgvMedicamentos.DataSource = null;
+            dgvMedicamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMedicamentos.DataSource = ControladoraMedicamento.Instancia.RecuperarMedicamentos();
         }
 
         private void dgvMedicamentos_SelectionChanged(object sender, EventArgs e)
         {
+            CargarDroguerias();
+        }
 
+
+        private void CargarDroguerias()
+        {
+            if (dgvMedicamentos.Rows.Count > 0 && dgvMedicamentos.SelectedRows.Count > 0)
+            {
+                dgvDroguerias.DataSource = null;
+                dgvDroguerias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                var medicamento = (Medicamento)dgvDroguerias.CurrentRow.DataBoundItem;
+                dgvDroguerias.DataSource = medicamento.Droguerias;
+            }
         }
     }
 }
