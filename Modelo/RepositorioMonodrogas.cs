@@ -48,12 +48,14 @@ namespace Modelo
                 connection.Dispose();
             }
         }
-
         public static RepositorioMonodrogas Instancia
-        { 
-            get 
+        {
+            get
             {
-                instancia ??= new RepositorioMonodrogas();
+                if (instancia == null)
+                {
+                    instancia = new RepositorioMonodrogas();
+                }
                 return instancia;
             }
         }
