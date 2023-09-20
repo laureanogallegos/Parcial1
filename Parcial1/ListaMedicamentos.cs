@@ -24,6 +24,22 @@ namespace Parcial1
         {
             dgvMedicamentos.DataSource = null;
             dgvMedicamentos.DataSource = controladora.RecuperarMedicamentos();
+            dgvMedicamentos.Columns.Remove("Monodroga");
+
+        }
+
+        public void ActualizarDroguerias()
+        {
+            if (dgvDrogueriasMedicamento.SelectedRows.Count == 0)
+            {
+                dgvDrogueriasMedicamento.DataSource = null;
+            }
+            else
+            {
+                var medicamento = dgvDrogueriasMedicamento.CurrentRow.DataBoundItem as Medicamento;
+                dgvDrogueriasMedicamento.DataSource = null;
+                dgvDrogueriasMedicamento.DataSource = medicamento.Droguerias;
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -38,11 +54,17 @@ namespace Parcial1
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            using (FormMedicamentos form = new FormMedicamentos(Medicamento pMedicamento))
+
+            if (dgvMedicamentos.SelectedRows.Count == 1)
             {
-                form.ShowDialog();
-                Actualizar();
+                var pMedicamento = dgvMedicamentos.CurrentRow.DataBoundItem as Medicamento;
+                using (FormMedicamentos form = new FormMedicamentos(pMedicamento))
+                {
+                    form.ShowDialog();
+                    Actualizar();
+                }
             }
+            else MessageBox.Show("Ningun medicamento seleccionado.");
             Actualizar();
         }
 
@@ -52,8 +74,10 @@ namespace Parcial1
             {
                 var medicamento = dgvMedicamentos.CurrentRow.DataBoundItem as Medicamento;
                 MessageBox.Show(controladora.Eliminar(medicamento));
+                Actualizar();
             }
             else MessageBox.Show("No hay ningun medicamento seleccionado.");
+            Actualizar();
         }
 
         private void ListaMedicamentos_Load(object sender, EventArgs e)
@@ -63,17 +87,7 @@ namespace Parcial1
 
         private void dgvMedicamentos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
-            if(dgvDrogueriasMedicamento.SelectedRows.Count == 0)
-            {
-                dgvDrogueriasMedicamento.DataSource = null;
-            }
-            else
-            {
-                var medicamento = dgvDrogueriasMedicamento.CurrentRow.DataBoundItem as Medicamento;
-                dgvDrogueriasMedicamento.DataSource = null;
-                dgvDrogueriasMedicamento.DataSource = medicamento.Droguerias;
-            }
+            ActualizarDroguerias();
         }
     }
 }

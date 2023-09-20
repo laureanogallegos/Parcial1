@@ -10,6 +10,7 @@ namespace Modelo
     public class Medicamento
     {
         public Monodroga Monodroga { get; set; }
+        public string NombreMonodroga { get { return Monodroga.Nombre; } }
         public string NombreComercial { get; set; }
 
         public decimal PrecioVenta { get; set; }

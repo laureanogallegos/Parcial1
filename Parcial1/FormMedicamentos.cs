@@ -65,8 +65,10 @@ namespace Parcial1
                 var drogueria = dgvDrogueriasMedicamento.CurrentRow.DataBoundItem as Drogueria;
 
                 medicamento.Droguerias.Remove(drogueria);
+                Actualizar();
             }
             else MessageBox.Show("No hay ninguna drogueria seleccionada.");
+            Actualizar();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -94,6 +96,8 @@ namespace Parcial1
 
                 controladora.Agregar(NuevoMedicamento);
             }
+
+            this.Close();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
