@@ -16,7 +16,7 @@ namespace Modelo
             Recuperar();
         }
 
-        private void Recuperar()
+        public void Recuperar()
         {
             using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
             try
