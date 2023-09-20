@@ -36,7 +36,7 @@ namespace Parcial1
         }
         private void CargarComboBox()
         {
-            var monodrogas = Controladora.ControladoraMonodrogas.Instancia.RecuperarMonodrogas();
+            var monodrogas = Controladora.ControladoraMedicamentos.Instancia.RecuperarMonodrogas();
             foreach (Monodroga monodroga in monodrogas)
             {
                 cmbMonodroga.Items.Add(monodroga.Nombre);
@@ -46,7 +46,7 @@ namespace Parcial1
         private void ActualizarComboBoxDrogueria()
         {
             cmbDrogueria.Items.Clear();
-            var droguerias = Controladora.ControladoraDroguerias.Instancia.RecuperarDroguerias();
+            var droguerias = Controladora.ControladoraMedicamentos.Instancia.RecuperarDroguerias();
             foreach (Drogueria drogueria in droguerias)
             {
                 var drogueriaEncontrada = medicamento.Droguerias.FirstOrDefault(x => x.Cuit == drogueria.Cuit);
@@ -141,7 +141,7 @@ namespace Parcial1
                 {
                     medicamento.NombreComercial = txtNombreComercial.Text;
                     var nombreMonodroga = cmbMonodroga.Text;
-                    var monodrogas = Controladora.ControladoraMonodrogas.Instancia.RecuperarMonodrogas();
+                    var monodrogas = Controladora.ControladoraMedicamentos.Instancia.RecuperarMonodrogas();
                     var monodrogaEncontrada = monodrogas.FirstOrDefault(m => m.Nombre.ToLower() == nombreMonodroga.ToLower());
                     medicamento.Monodroga = monodrogaEncontrada;
                     medicamento.NombreComercial = txtNombreComercial.Text;
@@ -164,7 +164,7 @@ namespace Parcial1
                 return;
             }
             var cuitDrogueria = Convert.ToInt64(cmbDrogueria.Text);
-            var drogueriaEncontrada = Controladora.ControladoraDroguerias.Instancia.RecuperarDroguerias().FirstOrDefault(x => x.Cuit == cuitDrogueria);
+            var drogueriaEncontrada = Controladora.ControladoraMedicamentos.Instancia.RecuperarDroguerias().FirstOrDefault(x => x.Cuit == cuitDrogueria);
             var respuesta = medicamento.AgregarDrogueria(drogueriaEncontrada);
 
             MessageBox.Show(respuesta, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

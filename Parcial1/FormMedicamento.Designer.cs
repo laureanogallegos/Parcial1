@@ -213,6 +213,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = btnCancelar;
             ClientSize = new Size(423, 529);
+            ControlBox = false;
             Controls.Add(btnEliminarDrogueria);
             Controls.Add(dgvDroguerias);
             Controls.Add(btnAgregarDrogueria);
@@ -232,6 +233,7 @@
             Controls.Add(txtNombreComercial);
             Controls.Add(label1);
             Name = "FormMedicamento";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "FormMedicamento";
             Load += FormMedicamento_Load_1;

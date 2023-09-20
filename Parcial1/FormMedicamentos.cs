@@ -17,6 +17,7 @@ namespace Parcial1
         public FormMedicamentos()
         {
             InitializeComponent();
+            ActualizarGrilla();
         }
         private void ActualizarGrilla()
         {
@@ -26,7 +27,7 @@ namespace Parcial1
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void FormMedicamentos_Load(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace Parcial1
         {
             var formMedicamento = new FormMedicamento();
             formMedicamento.ShowDialog();
+            ActualizarGrilla();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

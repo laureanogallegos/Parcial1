@@ -20,12 +20,33 @@ namespace Controladora
             try
             {
                 return Modelo.RepositorioMedicamentos.Instancia.RecuperarMedicamentos();
-            } catch (Exception)
+            } catch (Exception ex)
             {
                 throw;
             }
         }
-
+        public ReadOnlyCollection<Modelo.Drogueria> RecuperarDroguerias()
+        {
+            try
+            {
+                return Modelo.RepositorioDroguerias.Instancia.Droguerias;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public ReadOnlyCollection<Modelo.Monodroga> RecuperarMonodrogas()
+        {
+            try
+            {
+                return Modelo.RepositorioMonodrogas.Instancia.Monodrogas;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public string AgregarMedicamento(Medicamento medicamento)
         {
             try
