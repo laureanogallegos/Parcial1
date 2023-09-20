@@ -55,6 +55,43 @@ namespace Modelo
 
         }
 
+        public List<Drogueria> RecuperarDrogueriasDeMedicamento(Medicamento medicamento)
+        {
+            List<Drogueria> drogueriasMedicamento = new List<Drogueria>();
+
+            using (var connection = new SqlConnection(configuration.GetConnectionString("DefaultConnection")))
+                try
+                {
+                    using var command = new SqlCommand();
+                    //otra forma de hacerlo es usando Store Procedures
+                    command.CommandText = "SP_RECUPERARDROGUERIASMEDICAMENTOS";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.Add("@NOMBRE_COMERCIAL", System.Data.SqlDbType.NVarChar, 50).Value = medicamento.NombreComercial;
+                    /////////////////////////
+                    command.Connection = connection;
+                    command.Connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var cuitDrogueria = Convert.ToInt64(reader["CUIT"].ToString());
+                        var drogueria = droguerias.FirstOrDefault(x => x.Cuit == cuitDrogueria);
+                        drogueriasMedicamento.Add(drogueria);
+                    }
+                    command.Connection.Close();
+                }
+                catch (SqlException ex)
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+            return drogueriasMedicamento;
+        }
+
         public static RepositorioDroguerias Instancia
         {
             get
