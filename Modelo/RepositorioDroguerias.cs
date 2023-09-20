@@ -34,7 +34,7 @@ namespace Modelo
                 {
                     //por cada fila que creo tengo que asignar manualmente cada columna con cada propiedad
                     var drogueria = new Drogueria();
-                    drogueria.Cuit = Convert.ToInt64(reader["CUIT"].ToString());
+                    drogueria.Cuit = reader["CUIT"].ToString();
                     drogueria.RazonSocial = reader["RAZON_SOCIAL"].ToString();
                     drogueria.Direccion = reader["DIRECCION"].ToString();
                     drogueria.Email = reader["EMAIL"].ToString();
@@ -64,9 +64,9 @@ namespace Modelo
             }
         }
 
-        public ReadOnlyCollection<Drogueria> Droguerias
+        public ReadOnlyCollection<Drogueria> ListarDroguerias()
         {
-            get => droguerias.AsReadOnly();
+            return droguerias.AsReadOnly();
         }
     }
 }
