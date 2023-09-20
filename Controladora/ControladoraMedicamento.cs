@@ -8,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace Controladora
 {
-    internal class Class1
+    public class ControladoraMedicamento
     {
-      
+        public ControladoraMedicamento()
+        {
+
+        }
+
+
+
         public class ControladoraMonodroga
         {
             private ControladoraMonodroga() { }
@@ -56,8 +62,5 @@ namespace Controladora
                         }
                         else return $"La monodroga {monodroga.Nombre} no se ha podido agregar";
                     }
-
-
-
-
-
+                }
+}
