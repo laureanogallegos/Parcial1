@@ -57,5 +57,10 @@ namespace Controladora
         {
             return RepositorioMonodrogas.Instancia.Monodrogas;
         }
+
+        public ReadOnlyCollection<Medicamento> RecuperarMedicamentos()
+        {
+            return RepositorioMedicamentos.Instancia.Recuperar();
+        }
     }
 }

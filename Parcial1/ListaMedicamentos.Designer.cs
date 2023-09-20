@@ -45,6 +45,7 @@
             btnEliminar.TabIndex = 9;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -54,6 +55,7 @@
             btnModificar.TabIndex = 8;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
@@ -82,6 +84,7 @@
             dgvMedicamentos.RowTemplate.Height = 25;
             dgvMedicamentos.Size = new Size(553, 362);
             dgvMedicamentos.TabIndex = 5;
+            dgvMedicamentos.RowHeaderMouseClick += dgvMedicamentos_RowHeaderMouseClick;
             // 
             // ListaMedicamentos
             // 
@@ -95,6 +98,7 @@
             Controls.Add(dgvMedicamentos);
             Name = "ListaMedicamentos";
             Text = "ListaMedicamentos";
+            Load += ListaMedicamentos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDrogueriasMedicamento).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvMedicamentos).EndInit();
             ResumeLayout(false);
