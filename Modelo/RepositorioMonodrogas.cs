@@ -62,5 +62,10 @@ namespace Modelo
         { 
             get => monodrogas.AsReadOnly(); 
         }
+        //Metodo agregado para buscar una monodroga a partir de un nombre. Se utiliza en el repositorio de medicamentos
+        public Monodroga BuscarMonodroga(string nombre)
+        {
+            return monodrogas.FirstOrDefault(x => x.Nombre.ToLower() == nombre.ToLower());
+        }
     }
 }
